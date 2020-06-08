@@ -1,0 +1,16 @@
+class Solution {
+    public boolean containsDuplicate(int[] nums) {
+        //HashSet存储元素，比较数组中元素数量与HashSet.size()数量是否相同
+        Set<Integer> set = new HashSet<>();
+        
+        for(int i = 0; i < nums.length; i++){
+            set.add(nums[i]);
+        }
+        if(set.size() == nums.length){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+}
