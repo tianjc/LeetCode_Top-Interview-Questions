@@ -1,0 +1,16 @@
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>();
+        //只用一次HashMap
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            //如果map中包含所需值，则直接返回
+            if (map.containsKey(complement)) {
+                return new int[] { map.get(complement), i };
+            }
+            //如果map中不包含所需，则继续将nums中其余元素添加到map中
+            map.put(nums[i], i);
+        }
+        throw new IllegalArgumentException("No two sum solution");
+    }
+}
