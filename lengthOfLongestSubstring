@@ -1,0 +1,21 @@
+class Solution {
+    public int lengthOfLongestSubstring(String s) {
+        Set<Character> cache = new HashSet<>();
+        int left = 0, right = 0, ans = 0;
+        int length = s.length();
+        
+        //遍历字符串，当右边没有重复值时将元素放入
+        //当有重复值时，对比长度大小
+        while(left < length && right < length) {
+            if(!cache.contains(s.charAt(right))){
+                cache.add(s.charAt(right));
+                right++;
+                ans = Math.max(ans, right - left);
+            } else {
+                cache.remove(s.charAt(left));
+                left++;
+            }
+        }
+        return ans;
+    }
+}
